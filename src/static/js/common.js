@@ -23,11 +23,11 @@ var swiper = new Swiper('.documents__slider', {
     spaceBetween: 0,
     slidesPerView: 5,
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.documents-block .swiper-button-next',
+        prevEl: '.documents-block .swiper-button-prev',
     },
     pagination: {
-        el: '.swiper-pagination',
+        el: '.documents-block .swiper-pagination',
     },
     breakpoints: {
         599: {
@@ -49,6 +49,37 @@ var swiper = new Swiper('.documents__slider', {
         1599: {
             slidesPerView: 4.3,
             spaceBetween: 42,
+        }
+    }
+});
+
+var swiper2 = new Swiper('.certificates__slider', {
+    loop: true,
+    spaceBetween: 0,
+    slidesPerView: 4,
+    navigation: {
+        nextEl: '.certificates-block .swiper-button-next',
+        prevEl: '.certificates-block .swiper-button-prev',
+    },
+    pagination: {
+        el: '.certificates-block .swiper-pagination',
+    },
+    breakpoints: {
+        499: {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+        },
+        767: {
+            slidesPerView: 1.5,
+            spaceBetween: 16,
+        },
+        1099: {
+            slidesPerView: 2.5,
+            spaceBetween: 16,
+        },
+        1599: {
+            slidesPerView: 3.5,
+            spaceBetween: 16,
         }
     }
 });
