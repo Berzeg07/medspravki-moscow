@@ -16,11 +16,40 @@ $(document).ready(function(){
             }
         }
     });
+
+    if(window.innerWidth >= 1100) {
+        $('.tab a').click(function (e) {
+            e.preventDefault();
+            $('a').removeClass('active');
+            $(this).addClass('active');
+            var tab = $(this).attr('href');
+            $('.tab__box').not(tab).css({'display': 'none'});
+            $(tab).fadeIn(400);
+        });
+        $('.tab a:first').click();
+    }
+
+    $( window ).resize(function() {
+        if(window.innerWidth >= 1100) {
+            $('.tab a').click(function (e) {
+                e.preventDefault();
+                $('a').removeClass('active');
+                $(this).addClass('active');
+                var tab = $(this).attr('href');
+                $('.tab__box').not(tab).css({'display': 'none'});
+                $(tab).fadeIn(400);
+            });
+            $('.tab a:first').click();
+        } else {
+            $('#tab1').removeAttr('style');
+            $('#tab2').removeAttr('style');
+        }
+    });
 });
 
 var swiper = new Swiper('.documents__slider', {
     loop: true,
-    spaceBetween: 0,
+    spaceBetween: 60,
     slidesPerView: 5,
     navigation: {
         nextEl: '.documents-block .swiper-button-next',
@@ -55,7 +84,7 @@ var swiper = new Swiper('.documents__slider', {
 
 var swiper2 = new Swiper('.certificates__slider', {
     loop: true,
-    spaceBetween: 0,
+    spaceBetween: 80,
     slidesPerView: 4,
     navigation: {
         nextEl: '.certificates-block .swiper-button-next',
