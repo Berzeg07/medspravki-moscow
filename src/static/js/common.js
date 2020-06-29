@@ -113,6 +113,37 @@ var swiper2 = new Swiper('.certificates__slider', {
     }
 });
 
+var swiper3 = new Swiper('.advantages__slider', {
+    loop: true,
+    spaceBetween: 80,
+    slidesPerView: 4,
+    navigation: {
+        nextEl: '.advantages-block .swiper-button-next',
+        prevEl: '.advantages-block .swiper-button-prev',
+    },
+    pagination: {
+        el: '.advantages-block .swiper-pagination',
+    },
+    breakpoints: {
+        499: {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+        },
+        767: {
+            slidesPerView: 1.5,
+            spaceBetween: 16,
+        },
+        1099: {
+            slidesPerView: 2.5,
+            spaceBetween: 16,
+        },
+        1599: {
+            slidesPerView: 3.5,
+            spaceBetween: 16,
+        }
+    }
+});
+
 ymaps.ready(init);
 function init(){
     var myMap = new ymaps.Map("map", {
