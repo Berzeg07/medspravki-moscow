@@ -178,15 +178,37 @@ $(document).ready(function(){
         }
     });
 
-    ymaps.ready(init);
-    function init(){
-        var myMap = new ymaps.Map("map", {
-            center: [55.76, 37.64],
-            controls: ['zoomControl', 'geolocationControl'],
-            zoom: 11
-        });
+    var checkDiv = document.querySelector('#map');
+    var YaMapsShown = false;
+    if (checkDiv != null) {
 
-        myMap.behaviors.disable('scrollZoom');
+        $(window).scroll(function() {
+            if (!YaMapsShown) {
+                if ($(window).scrollTop() >= 2000) {
+                    var elem = document.createElement('script');
+                    elem.type = 'text/javascript';
+                    elem.src = 'https://api-maps.yandex.ru/2.1/?apikey=7293582a-d52e-4d29-9127-18e638c44040&lang=ru_RU';
+
+                    $('body').append(elem);
+                    YaMapsShown = true;
+                    setTimeout(function() {
+                        ymaps.ready(init);
+
+                        function init() {
+
+                            var myMap = new ymaps.Map("map", {
+                                center: [55.76, 37.64],
+                                controls: ['zoomControl', 'geolocationControl'],
+                                zoom: 11
+                            });
+
+                            myMap.behaviors.disable('scrollZoom');
+                        }
+                    }, 500);
+                }
+            }
+        });
     }
 
 });
+
