@@ -2,6 +2,15 @@ $(document).ready(function(){
     $('.sertificat').selectric();
     $('.station').selectric();
 
+    $('.choice-link').on('click', function(e) {
+        if($(this).find('.choice-checkbox').prop('checked')) {
+            $(this).find('.choice-checkbox').prop('checked', false);
+            e.preventDefault();
+        } else {
+            $(this).find('.choice-checkbox').prop('checked', true);
+        }
+    });
+
     $('.burger').on('click', function() {
         $('.sub-menu-inner').slideToggle();
         if($(this).attr('style')) {
