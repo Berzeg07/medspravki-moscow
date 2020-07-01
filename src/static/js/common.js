@@ -2,6 +2,14 @@ $(document).ready(function(){
     $('.sertificat').selectric();
     $('.station').selectric();
 
+    $('.choice-btn').on('click', function(e) {
+        e.preventDefault();
+
+        $('html, body').animate({
+           scrollTop: $('.get-help').offset().top
+        }, 1000);
+    });
+
     $('.choice-link').on('click', function(e) {
         if($(this).find('.choice-checkbox').prop('checked')) {
             $(this).find('.choice-checkbox').prop('checked', false);
@@ -10,6 +18,7 @@ $(document).ready(function(){
             $(this).find('.choice-checkbox').prop('checked', true);
         }
     });
+
 
     $('.burger').on('click', function() {
         $('.sub-menu-inner').slideToggle();
